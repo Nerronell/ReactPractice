@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Яблоко",
+      "description": "Красное сладкое, свежий урожай",
+      "price": "100руб/кг",
+      "inStock": true,
+      "category": "Фрукты"
+    },
+    {
+      "id": 2,
+      "name": "Груша",
+      "description": "Сочная сладкая, фермерские",
+      "price": "120руб/кг",
+      "inStock": true,
+      "category": "Фрукты"
+    },
+    {
+      "id": 3,
+      "name": "Банан",
+      "description": "Спелые, привезены из Эквадора",
+      "price": "150руб/кг",
+      "inStock": false,
+      "category": "Фрукты"
+    },
+    {
+      "id": 4,
+      "name": "Апельсин",
+      "description": "Красное сладкое, свежий урожай",
+      "price": "130руб/кг",
+      "inStock": true,
+      "category": "Фрукты"
+    }
+  ]
+}
