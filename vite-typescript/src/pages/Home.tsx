@@ -1,6 +1,7 @@
 // src/pages/Home.tsx
 import { useAuth } from "../context/AuthContext";
 import { Button } from "../components/Button";
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
   const { user } = useAuth();
@@ -8,7 +9,6 @@ export const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100">
       <div className="container mx-auto px-4 py-16 max-w-6xl">
-        {/* Hero секция */}
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-800 mb-4">
             Добро пожаловать в Магазин
@@ -25,7 +25,6 @@ export const Home = () => {
           )}
         </div>
 
-        {/* Информационные карточки */}
         <div className="grid md:grid-cols-3 gap-8 mt-12">
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <div className="text-4xl mb-4">🚚</div>
@@ -46,7 +45,6 @@ export const Home = () => {
           </div>
         </div>
 
-        {/* Информация о пользователе */}
         {user && (
           <div className="mt-16 bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-bold mb-4">Ваш профиль</h2>
@@ -74,6 +72,3 @@ export const Home = () => {
     </div>
   );
 };
-
-// Добавьте импорт Link
-import { Link } from 'react-router-dom';

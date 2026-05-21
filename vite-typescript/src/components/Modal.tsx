@@ -1,4 +1,3 @@
-// src/components/Modal.tsx
 import React, { useState, useEffect } from "react";
 
 interface ModalProps {
@@ -11,7 +10,6 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onAdd }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  // Очищаем поля при открытии модалки
   useEffect(() => {
     if (isOpen) {
       setTitle("");
@@ -23,22 +21,21 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onAdd }) => {
     e.preventDefault();
     if (title.trim()) {
       onAdd(title.trim(), description);
-      onClose(); // Закрываем после добавления
+      onClose();
     }
   };
 
   if (!isOpen) return null;
 
   return (
-    // Затемненный фон
     <div
       className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
-      onClick={onClose} // Закрытие по клику на фон
+      onClick={onClose}
     >
-      {/* Само модальное окно */}
+      {}
       <div
       className="bg-white rounded-lg shadow-xl w-full max-w-md p-6"
-      onClick={(e) => e.stopPropagation()} // Чтобы клик внутри не закрыл окно
+      onClick={(e) => e.stopPropagation()}
     >
       <h2 className="text-2xl font-bold mb-4 text-gray-800">Добавить новый элемент</h2>
       <form onSubmit={handleSubmit}>

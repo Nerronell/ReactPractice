@@ -1,7 +1,5 @@
-/* src/index.css */
 @import "tailwindcss";
 
-/* Десктопные стили */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -1,4 +1,3 @@
-// src/pages/About.tsx
 import { useState, useEffect } from "react";
 import { Button } from "../components/Button";
 import { ProductItem } from "../components/ProductItem";
@@ -109,14 +108,12 @@ export const About = () => {
           )}
         </div>
 
-        {/* Статус загрузки */}
         {loading && (
           <div className="text-center py-12">
             <div className="text-gray-500 text-lg">Загрузка товаров...</div>
           </div>
         )}
 
-        {/* Ошибка */}
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg mb-6">
             <p className="font-semibold mb-2">{error}</p>
@@ -129,7 +126,6 @@ export const About = () => {
           </div>
         )}
 
-        {/* Список товаров */}
         {!loading && !error && (
           <div className="bg-gray-50 rounded-lg p-6">
             <div className="flex justify-between items-center mb-4">
@@ -166,8 +162,6 @@ export const About = () => {
             )}
           </div>
         )}
-
-        {/* Модальное окно добавления товара */}
         <AddProductModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}

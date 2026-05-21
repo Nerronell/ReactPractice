@@ -1,4 +1,3 @@
-// src/components/ProductItem.tsx
 import React from "react";
 
 interface ProductItemProps {
@@ -19,23 +18,28 @@ export const ProductItem: React.FC<ProductItemProps> = ({
   onDelete 
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 mb-3 hover:shadow-lg transition-shadow">
+    <div className="bg-white rounded-lg shadow-md p-6 mb-4 hover:shadow-lg transition-shadow">
       <div className="flex justify-between items-start">
         <div className="flex-1">
-          <div className="flex items-center gap-2 mb-2">
-            <h3 className="text-xl font-semibold text-gray-800">{name}</h3>
+          <div className="flex items-center gap-3 mb-3">
+            <h3 className="text-2xl font-semibold text-gray-800">{name}</h3>
             {!inStock && (
-              <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">
+              <span className="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full font-medium">
                 Нет в наличии
               </span>
             )}
+            {inStock && (
+              <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium">
+                В наличии
+              </span>
+            )}
           </div>
-          <p className="text-gray-600 text-sm mb-2">{description}</p>
-          <p className="text-green-600 font-bold text-lg">{price}</p>
+          <p className="text-gray-600 text-base mb-3 leading-relaxed">{description}</p>
+          <p className="text-green-600 font-bold text-2xl">{price}</p>
         </div>
         <button
           onClick={() => onDelete(id)}
-          className="text-red-500 hover:text-red-700 text-xl font-bold px-2 py-1"
+          className="text-red-500 hover:text-red-700 text-2xl font-bold px-3 py-1 transition-colors"
           aria-label="Удалить"
         >
           ✕
