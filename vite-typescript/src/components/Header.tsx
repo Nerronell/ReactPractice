@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export const Header = () => {
-  const { user, logout, isAdmin } = useAuth();
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -18,7 +18,7 @@ export const Header = () => {
           <nav className="flex justify-between items-center">
             {/* Логотип */}
             <Link to='/' className="text-white text-2xl font-bold hover:text-gray-300 transition-colors">
-              🛒 МойМагазин
+              Магазин
             </Link>
             
             {/* Навигация */}
@@ -37,15 +37,6 @@ export const Header = () => {
                   </div>
                 </Link>
               </li>
-              {isAdmin() && (
-                <li>
-                  <Link to='/admin'>
-                    <div className='text-white hover:text-gray-300 transition-colors font-medium'>
-                      Админ панель
-                    </div>
-                  </Link>
-                </li>
-              )}
             </ul>
             
             {/* Пользовательская секция */}

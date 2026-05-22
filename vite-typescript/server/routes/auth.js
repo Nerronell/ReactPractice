@@ -1,4 +1,3 @@
-// server/routes/auth.js
 import express from "express";
 import fs from "fs";
 import { fileURLToPath } from "url";
@@ -10,7 +9,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const dataPath = join(__dirname, "../data/users.json");
 
-// Функции для работы с пользователями
 const readUsers = () => {
   const data = fs.readFileSync(dataPath, "utf8");
   return JSON.parse(data);
@@ -20,19 +18,16 @@ const writeUsers = (data) => {
   fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
 };
 
-// Валидация email
 const validateEmail = (email) => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 };
 
-// Валидация телефона
 const validatePhone = (phone) => {
   const re = /^\+?[0-9]{10,12}$/;
   return re.test(phone);
 };
 
-// Регистрация
 router.post("/register", (req, res) => {
   try {
     const { firstName, lastName, email, phone, password, role = "user" } = req.body;
@@ -66,7 +61,6 @@ router.post("/register", (req, res) => {
     
     const data = readUsers();
     
-    // Проверка на существующего пользователя
     const existingUser = data.users.find(u => u.email === email);
     if (existingUser) {
       return res.status(400).json({ 
@@ -81,7 +75,7 @@ router.post("/register", (req, res) => {
       lastName,
       email,
       phone,
-      password, // В реальном проекте нужно хэшировать!
+      password,
       role,
       createdAt: new Date().toISOString()
     };
@@ -89,7 +83,6 @@ router.post("/register", (req, res) => {
     data.users.push(newUser);
     writeUsers(data);
     
-    // Отправляем данные без пароля
     const { password: _, ...userWithoutPassword } = newUser;
     res.status(201).json({ 
       message: "Регистрация успешна!", 
@@ -102,12 +95,10 @@ router.post("/register", (req, res) => {
   }
 });
 
-// Вход в систему
 router.post("/login", (req, res) => {
   try {
     const { email, password } = req.body;
     
-    // Валидация
     const errors = {};
     
     if (!email) {
@@ -131,7 +122,6 @@ router.post("/login", (req, res) => {
       });
     }
     
-    // Отправляем данные без пароля
     const { password: _, ...userWithoutPassword } = user;
     res.json({ 
       message: "Вход выполнен успешно!", 
@@ -144,7 +134,6 @@ router.post("/login", (req, res) => {
   }
 });
 
-// Получение всех пользователей (только для админа)
 router.get("/users", (req, res) => {
   try {
     const data = readUsers();

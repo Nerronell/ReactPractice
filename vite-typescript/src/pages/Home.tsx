@@ -11,10 +11,10 @@ export const Home = () => {
       <div className="container mx-auto px-4 py-16 max-w-6xl">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-800 mb-4">
-            Добро пожаловать в Магазин
+            Магазин
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            Лучшие продукты по лучшим ценам
+            Лучшие товары по лучшим ценам
           </p>
           {!user && (
             <div className="flex gap-4 justify-center">
@@ -29,19 +29,19 @@ export const Home = () => {
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <div className="text-4xl mb-4">🚚</div>
             <h3 className="text-xl font-semibold mb-2">Быстрая доставка</h3>
-            <p className="text-gray-600">Доставка по всей стране за 1-3 дня</p>
+            <p className="text-gray-600"></p>
           </div>
           
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <div className="text-4xl mb-4">⭐</div>
             <h3 className="text-xl font-semibold mb-2">Высокое качество</h3>
-            <p className="text-gray-600">Только проверенные продукты</p>
+            <p className="text-gray-600"></p>
           </div>
           
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <div className="text-4xl mb-4">💳</div>
             <h3 className="text-xl font-semibold mb-2">Безопасная оплата</h3>
-            <p className="text-gray-600">Различные способы оплаты</p>
+            <p className="text-gray-600"></p>
           </div>
         </div>
 

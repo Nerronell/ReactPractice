@@ -1,4 +1,3 @@
-// server/routes/products.js
 import express from "express";
 import fs from "fs";
 import { fileURLToPath } from "url";
@@ -6,23 +5,19 @@ import { dirname, join } from "path";
 
 const router = express.Router();
 
-// Получаем путь к файлу данных
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const dataPath = join(__dirname, "../data/products.json");
 
-// Функция для чтения данных
 const readProducts = () => {
   const data = fs.readFileSync(dataPath, "utf8");
   return JSON.parse(data);
 };
 
-// Функция для записи данных
 const writeProducts = (data) => {
   fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
 };
 
-// GET /api/products - получить все товары
 router.get("/", (req, res) => {
   try {
     const data = readProducts();
@@ -32,7 +27,6 @@ router.get("/", (req, res) => {
   }
 });
 
-// GET /api/products/:id - получить товар по ID
 router.get("/:id", (req, res) => {
   try {
     const data = readProducts();
@@ -48,7 +42,6 @@ router.get("/:id", (req, res) => {
   }
 });
 
-// POST /api/products - добавить новый товар
 router.post("/", (req, res) => {
   try {
     const { name, description, price, category = "Фрукты", inStock = true } = req.body;
@@ -78,7 +71,6 @@ router.post("/", (req, res) => {
   }
 });
 
-// PUT /api/products/:id - обновить товар
 router.put("/:id", (req, res) => {
   try {
     const id = parseInt(req.params.id);
@@ -107,7 +99,6 @@ router.put("/:id", (req, res) => {
   }
 });
 
-// DELETE /api/products/:id - удалить товар
 router.delete("/:id", (req, res) => {
   try {
     const id = parseInt(req.params.id);
